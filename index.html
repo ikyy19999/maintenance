@@ -1,104 +1,139 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Under Maintenance | Coming Soon</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>BRB - Fixing Stuff</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #f0f0f0;
+            --accent: #000;
+            --point: #ff0000; /* Warna aksen merah brutalist */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--accent);
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 5%;
+        }
+
+        /* Marquee gaya agency di atas */
+        .marquee {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--accent);
+            color: var(--bg);
+            padding: 10px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            z-index: 10;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: scroll 30s linear infinite;
+        }
+
+        @keyframes scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        .content {
+            max-width: 900px;
+            z-index: 2;
+        }
+
+        .tag {
+            font-weight: 700;
+            text-transform: uppercase;
+            border: 2px solid var(--accent);
+            display: inline-block;
+            padding: 4px 12px;
+            margin-bottom: 20px;
+            background: var(--point);
+            color: white;
+            box-shadow: 4px 4px 0px var(--accent);
+        }
+
+        h1 {
+            font-size: clamp(3.5rem, 12vw, 8rem);
+            line-height: 0.85;
+            font-weight: 700;
+            letter-spacing: -3px;
+            margin-bottom: 30px;
+        }
+
+        .desc {
+            font-size: 1.2rem;
+            max-width: 500px;
+            line-height: 1.4;
+            font-weight: 300;
+        }
+
+        /* Ornamen detail di pojok */
+        .decoration {
+            position: fixed;
+            bottom: 40px;
+            right: 5%;
+            font-size: 0.8rem;
+            text-align: right;
+            line-height: 1.2;
+            opacity: 0.6;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* Penyesuaian Mobile */
+        @media (max-width: 768px) {
+            body { justify-content: flex-start; padding-top: 100px; }
+            h1 { letter-spacing: -1px; }
+            .decoration { left: 5%; text-align: left; }
+        }
+    </style>
 </head>
 <body>
-    <div class="floating-shapes"></div>
-    
-    <div class="container">
-        <div class="maintenance-card">
-            <div class="logo">
-                <div class="logo-icon">
-                    <i class="fas fa-tools"></i>
-                </div>
-                <h1>Under Maintenance</h1>
-            </div>
-            
-            <div class="content">
-                <div class="illustration">
-                    <div class="gear gear-1">
-                        <i class="fas fa-cog"></i>
-                    </div>
-                    <div class="gear gear-2">
-                        <i class="fas fa-cog"></i>
-                    </div>
-                    <div class="gear gear-3">
-                        <i class="fas fa-cog"></i>
-                    </div>
-                    <div class="rocket">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                </div>
-                
-                <h2>Under Maintenance!</h2>
-                <p>We’re sprucing things up to make your experience even cooler 
-                Hold tight, our site will be back soon with <strong>awesome new features</strong></p>
-                
-                <!-- <div class="countdown">
-                    <h3>Kami akan kembali dalam:</h3>
-                    <div class="timer">
-                        <div class="time-box">
-                            <span id="days">03</span>
-                            <p>Hari</p>
-                        </div>
-                        <div class="time-box">
-                            <span id="hours">12</span>
-                            <p>Jam</p>
-                        </div>
-                        <div class="time-box">
-                            <span id="minutes">00</span>
-                            <p>Menit</p>
-                        </div>
-                        <div class="time-box">
-                            <span id="seconds">00</span>
-                            <p>Detik</p>
-                        </div>
-                    </div>
-                </div> -->
-                
-                <!-- <div class="social-links">
-                    <p>Ikuti kami untuk update terbaru:</p>
-                    <div class="social-icons">
-                        <a href="#" class="social-btn instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="social-btn tiktok">
-                            <i class="fab fa-tiktok"></i>
-                        </a>
-                        <a href="#" class="social-btn twitter">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-btn discord">
-                            <i class="fab fa-discord"></i>
-                        </a>
-                    </div>
-                </div> -->
-                
-                <div class="progress-container">
-                    <p>Progress So Far:</p>
-                    <div class="progress-bar">
-                        <div class="progress-fill" id="progress-fill"></div>
-                    </div>
-                    <span id="progress-text">0%</span>
-                </div>
-                
-                <!-- <div class="newsletter">
-                    <p>Dapatkan pemberitahuan ketika kami kembali:</p>
-                    <div class="email-input">
-                        <input type="email" placeholder="Masukkan email kamu...">
-                        <button>Notify Me</button>
-                    </div>
-                </div> -->
-            </div>
+
+    <div class="marquee">
+        <div class="marquee-content">
+            REFINING THE EXPERIENCE — STAY TUNED — EVOLVING IN PROGRESS — REFINING THE EXPERIENCE — STAY TUNED — EVOLVING IN PROGRESS — REFINING THE EXPERIENCE — STAY TUNED — EVOLVING IN PROGRESS —
         </div>
     </div>
-    
-    <script src="script.js"></script>
+
+    <div class="content">
+        <div class="tag">Maintenance</div>
+        <h1>BRB,<br>FIXING<br>STUFF.</h1>
+        
+        <p class="desc">
+            We're currently polishing some pixels to give you a better experience. We’ll be back online before you can finish your coffee.
+        </p>
+    </div>
+
+    <div class="decoration">
+        SYSTEM STATUS: UPGRADING<br>
+        © 2026 — ALL RIGHTS RESERVED
+    </div>
+
 </body>
 </html>
